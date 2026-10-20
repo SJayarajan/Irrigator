@@ -1,0 +1,3 @@
+git add .
+git commit -m "describe today's work"
+git push

@@ -1,0 +1,61 @@
+:root
+{
+  --nav-bg:    #80ff9f;      /* navbar background */
+  --nav-text:  #333333;    /* link and brand colour */
+  --nav-hover: #ff0000;   /* hover and active colour */
+}
+
+.navbar-custom
+{
+  background-color: var(--nav-bg);
+  --bs-navbar-color: var(--nav-text);
+  --bs-navbar-hover-color: var(--nav-hover);
+  --bs-navbar-active-color: var(--nav-hover);
+  --bs-navbar-brand-color: var(--nav-text);
+  --bs-navbar-brand-hover-color: var(--nav-hover);
+  --bs-navbar-disabled-color: rgba(0, 0, 0, 0.3);
+}
+
+#aboutModal .modal-content
+{
+  background-color: #80b3ff;   /* box background */
+  color: #333333;              /* text colour */
+  border: 2px solid #ffcccc;   /* border */
+}
+
+#aboutModal .modal-header
+{
+  background-color: #ccddff;   /* title bar */
+  color: #ffffff;
+  border-bottom: none;
+}
+
+#aboutModal .modal-footer
+{
+border-top: none;
+}
+
+.login-box
+{
+  max-width: 340px;   /* try 300px for smaller, 400px for larger */
+}
+
+.login-box .card
+{
+  background-color: #fff5cc;   /* box background */
+  color: #333333;              /* text colour */
+  border: 2px solid #ff6666;   /* border colour and thickness */
+  border-radius: 12px;         /* corner roundness */
+}
+
+.login-box .card-title
+{
+  color: #cc3333;              /* heading colour */
+}
+
+.login-box .btn-success
+{
+  background-color: #00e600;
+  border-color: #ff6666;
+  color: #ffffff;
+}

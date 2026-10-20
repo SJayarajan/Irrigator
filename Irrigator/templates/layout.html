@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% block title %}
+    <title></title>
+    {% endblock title %}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+
+    <a class="navbar-brand" href="{{ url_for('about') }}">🌱 My Indoor Garden Irrigator Ver 0.0 2026</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          {% if session.user %}
+          <a class="nav-link {{ 'active' if request.endpoint == 'configuration' }}"
+             href="{{ url_for('about') }}">Configuration</a>
+          {% else %}
+          <a class="nav-link disabled" aria-disabled="true" tabindex="-1">Configuration</a>
+          {% endif %}
+        </li>
+        <li class="nav-item">
+            {% if session.user %}
+          <a class="nav-link {{ 'active' if request.endpoint == 'load_profile' }}"
+             href="{{ url_for('about') }}">Load Profile</a>
+          {% else %}
+          <a class="nav-link disabled" aria-disabled="true" tabindex="-1">Load Profile</a>
+          {% endif %}
+
+
+        <li class="nav-item">
+          <a class="nav-link {{ 'active' if request.endpoint == 'help' }}"
+             href="{{ url_for('about') }}">Help</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a>
+        </li>
+
+
+      </ul>
+      <ul class="navbar-nav">
+        {% if session.user %}
+        <li class="nav-item"><span class="navbar-text me-3">{{ session.user }}</span></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">Logout</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ {%  block content %}
+
+
+ {% endblock content%}
+
+<div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title" id="aboutModalLabel"></h6>
+          <small class="text-muted me-auto"><strong>  My Indoor Irrigator Ver 0.0,2026</strong></small>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p class="mb-1">Programmed and Designed by <strong>Santhosh Jayarajan</strong></p>
+        <p class="text-muted mb-0"> Rev 0.0, Oct 2026 </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

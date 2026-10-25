@@ -5,5 +5,39 @@
 {% endblock title %}
 
 {% block content %}
+{% with msgs = get_flashed_messages(with_categories=true) %}
+  {% for cat, msg in msgs %}
+    <div class="alert alert-{{ cat }} alert-dismissible fade show">{{ msg }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>
+  {% endfor %}
+{% endwith %}
 
+<div class="d-flex justify-content-center mt-5">
+  <div class="login-box w-100">
+    <div class="card shadow-sm">
+      <div class="card-body p-4">
+        <h4 class="card-title text-center mb-4">🌱 Sign up</h4>
+
+        <form method="post" novalidate>
+          {{ form.hidden_tag() }}
+          {% for f in [form.username, form.password, form.confirm] %}
+          <div class="mb-3">
+            {{ f.label(class_="form-label") }}
+            {{ f(class_="form-control" + (" is-invalid" if f.errors else "")) }}
+            {% for e in f.errors %}<div class="invalid-feedback">{{ e }}</div>{% endfor %}
+          </div>
+          {% endfor %}
+          <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-success flex-fill">Sign up</button>
+            <a href="{{ url_for('home') }}" class="btn btn-secondary flex-fill">Cancel</a>
+          </div>
+          <div class="text-center mt-3">
+            <small>Already registered? <a href="{{ url_for('login') }}">Log in</a></small>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}

@@ -33,7 +33,7 @@
              href="{{ url_for('about') }}">Load Profile</a>
           {% else %}
           <a class="nav-link disabled" aria-disabled="true" tabindex="-1">Load Profile</a>
-          {% endif %}
+            {% endif %}</li>
 
 
         <li class="nav-item">
@@ -52,10 +52,10 @@
         <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">Logout</a></li>
         {% else %}
         <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ url_for('signup') }}">Sign up</a></li>
         {% endif %}
       </ul>
     </div>
-  </div>
 </nav>
 
  {%  block content %}

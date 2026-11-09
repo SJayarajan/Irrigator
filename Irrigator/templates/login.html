@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
-{% block title %}{% endblock %}
+{% block title %}
+ <title>Login Page</title>
+{% endblock %}
 
 {% block content %}
 {% with msgs = get_flashed_messages(with_categories=true) %}
@@ -22,6 +24,8 @@
             <label for="username" class="form-label">User name</label>
             {{ form.username(class_="form-control" + (" is-invalid" if form.username.errors else ""), autofocus=True) }}
             {% for e in form.username.errors %}<div class="invalid-feedback">{{ e }}</div>{% endfor %}
+
+          </div>
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>

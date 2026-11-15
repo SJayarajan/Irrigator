@@ -22,7 +22,7 @@
         <li class="nav-item">
           {% if session.user %}
           <a class="nav-link {{ 'active' if request.endpoint == 'configuration' }}"
-             href="{{ url_for('about') }}">Configuration</a>
+             href="{{ url_for('about') }}">ESP 32 Configuration</a>
           {% else %}
           <a class="nav-link disabled" aria-disabled="true" tabindex="-1">Configuration</a>
           {% endif %}
@@ -30,7 +30,7 @@
         <li class="nav-item">
             {% if session.user %}
           <a class="nav-link {{ 'active' if request.endpoint == 'load_profile' }}"
-             href="{{ url_for('about') }}">Load Profile</a>
+             href="{{ url_for('about') }}">Manual Controls</a>
           {% else %}
           <a class="nav-link disabled" aria-disabled="true" tabindex="-1">Load Profile</a>
             {% endif %}</li>
@@ -48,7 +48,7 @@
       </ul>
       <ul class="navbar-nav">
         {% if session.user %}
-        <li class="nav-item"><span class="navbar-text me-3">{{ session.user }}</span></li>
+        <li class="nav-item"><span class="navbar-text me-3">Logged in as:  {{ session.user }}</span></li>
 
        <li class="nav-item">
          <form method="post" action="{{ url_for('logout') }}" class="d-inline">

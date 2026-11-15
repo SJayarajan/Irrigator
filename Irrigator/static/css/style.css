@@ -1,6 +1,6 @@
 :root
 {
-  --nav-bg:    #80ff9f;      /* navbar background */
+  --nav-bg:    #0CD9E8;      /* navbar background */
   --nav-text:  #333333;    /* link and brand colour */
   --nav-hover: #ff0000;   /* hover and active colour */
 }
@@ -58,4 +58,13 @@ border-top: none;
   background-color: #00e600;
   border-color: #ff6666;
   color: #ffffff;
+}
+
+body
+{
+  background-image: url("../image/Layout_Background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
